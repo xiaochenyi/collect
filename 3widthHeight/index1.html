@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>document的client相关的宽高</title>
+	<style type="text/css">
+		body{
+			height: 350px;
+			width: 500px;
+			overflow: scroll;
+			background-color: #eee;
+			padding: 40px;
+			margin: 10px;
+			border: 20px solid #ccc;
+		}
+
+		#mDiv{
+			width: 200px;
+			height: 200px;
+			background-color:red;
+			border:1px solid #000;
+			overflow: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="mDiv">
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+	</div>
+
+	<script type="text/javascript">
+		// clientWidth和clientHeight
+		// 该属性指的是元素的可视部分宽度和高度，即padding+content。如果没有滚动条，即为元素设定的高度和宽度。如果出现滚动条，滚动条会遮盖元素的宽高，那么该属性就是其本来宽高减去滚动条宽高。
+		console.log('document.body.clientWidth=' + document.body.clientWidth);
+		console.log('document.body.clientHeight=' + document.body.clientHeight);
+		console.log("window.innerWidth=" + window.innerWidth);
+		console.log("window.innerHeight=" + window.innerHeight);
+
+		// 总结：clientWidth = style.width + style.padding*2 - 滚动轴宽度
+		console.log("mDiv===========");
+		console.log("mDiv.clientWidth=" + document.getElementById('mDiv').clientWidth);
+		console.log("mDiv.clientHeight=" + document.getElementById('mDiv').clientHeight);
+
+		// clientLeft和clientTop这两个返回的是元素周围边框的厚度，如果不指定一个边框或者不定位该元素，它的值就是0。它是用来读取元素的border的宽度与高度的.
+		// clientTop = border-top的border-width
+		// clientLeft = border-left的border-width
+	</script>
+</body>
+</html>

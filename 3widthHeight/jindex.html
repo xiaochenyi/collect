@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jquery的相关宽高</title>
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<style type="text/css">
+		html,body{margin: 10px;border: 5px solid red;padding: 20px;}
+		.parentDiv{width: 800px;height: 500px;margin: 5px auto;background: #FF6600;border: 5px dashed green;padding: 30px; 
+			position: relative;}
+		.childrenDiv{width: 300px;height: 300px;margin: 50px auto;background: yellow;border: 5px solid black;padding: 5px;
+			/*box-sizing: border-box;*/position: relative;left: 10px;top:30px;}
+	</style>
+</head>
+<body>
+	<div class="parentDiv">
+		<div class="childrenDiv"></div>
+	</div>	
+	<script type="text/javascript">
+		// 相关的宽高有.width()   .height()   .innerWidth()   .innerHeight()   .outerHeight()  .outerWidth()  .offset()  .position()
+
+		// .scrollLeft()  .scrollTop()跟js的scrollLeft，scrollTop一样的
+
+		// .offset() ： 相对于document的当前坐标值（相对于body左上角的left，top的值）
+		// .position() : 相对于offsetParent元素左上角的left，top的值
+
+		console.log("window.innerHeight=" + window.innerHeight);
+		console.log("$(window).height()=" + $(window).height()) // chrome下window.innerHeight与$(window).height()相差个滚动条高度。可视区高度
+		console.log("$(document).height()=" + $(document).height()) // 文档高度
+
+		//window,document下面的innerouter相关不推荐
+		console.log("$(window).innerHeight()=" + $(window).innerHeight())
+		console.log("$(document).innerHeight()=" + $(document).innerHeight())
+
+		console.log("$(window).outerHeight()=" + $(window).outerHeight())
+		console.log("$(document).outerHeight()=" + $(document).outerHeight())
+
+
+		console.log("-----------------------")
+		// 下面是div的
+		console.log("$('.childrenDiv').height()=" + $(".childrenDiv").height())
+		console.log("$('.childrenDiv').innerHeight()=" + $(".childrenDiv").innerHeight())
+		console.log("$('.childrenDiv').outerHeight()=" + $(".childrenDiv").outerHeight())
+		console.log("$('.childrenDiv').outerHeight(true)=" + $(".childrenDiv").outerHeight(true))
+
+		console.log("-----------------------")
+		// offset，position
+		console.log("$('.childrenDiv').offset().top=" + $(".childrenDiv").offset().top)
+		console.log("$('.childrenDiv').offset().left=" + $(".childrenDiv").offset().left)
+		console.log("$('.childrenDiv').position().top=" + $(".childrenDiv").position().top)
+		console.log("$('.childrenDiv').position().left=" + $(".childrenDiv").position().left)  // 在火狐浏览器里解析是不一样的
+
+	</script>
+</body>
+</html>

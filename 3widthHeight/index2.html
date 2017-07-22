@@ -1,0 +1,58 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>document的offset相关的宽高</title>
+	<style type="text/css">
+		body{
+			height: 350px;
+			width: 500px;
+			overflow: scroll;
+			background-color: #eee;
+			padding: 40px;
+			margin: 10px;
+			border: 20px solid #ccc;
+		}
+
+		#mDiv{
+			width: 200px;
+			height: 200px;
+			background-color:red;
+			border:1px solid #000;
+			overflow: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="mDiv">
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+	</div>
+
+	<script type="text/javascript">
+		// offsetWidth和offsetHeight
+		// 这一对属性指的是元素的border + padding + content的宽高。该属性和其内部的内容是否超出元素大小无关，只和本来设定的border以及width，height有关。
+		console.log('document.body.offsetWidth=' + document.body.offsetWidth);
+		console.log('document.body.offsetHeight=' + document.body.offsetHeight);
+		console.log('document.body.clientWidth=' + document.body.clientWidth);
+		console.log('document.body.clientHeight=' + document.body.clientHeight);
+
+		// 总结：offsetWidth = style.width + style.padding * 2 + (border-width) * 2;
+		// offsetWidth = clientWidth + 滚动轴宽度 +　(border-width) * 2
+
+
+		// （offsetLeft和offsetTop）这里是个坑  跟offsetParent有关，它是当前元素离得最近的css定位的那个父级元素。浏览器兼容不同
+
+		// 在IE6/7 offsetLeft = (offsetParent的padding-left) +　（当前元素的margin-left）
+		// 在IE8/9/10以及chrome offsetLeft = (offsetParent的margin-left) +  (offsetParent的border宽度) + (offsetParent的padding-left) +　（当前元素的margin-left）
+		// 在firefox中 offsetLeft = (offsetParent的margin-left)  + (offsetParent的padding-left) +　（当前元素的margin-left）
+
+
+
+	</script>
+</body>
+</html>

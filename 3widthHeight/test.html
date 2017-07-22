@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<meta charset="utf-8">
+	<title>jquery的相关宽高</title>
+
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="jquery.json-2.4.js"></script>
+	<style type="text/css">
+		html,body{margin: 10px;border: 5px solid red;padding: 20px;}
+		.parentDiv{width: 800px;height: 500px;margin: 5px auto;background: #FF6600;border: 5px dashed green;padding: 30px; 
+			position: relative;}
+		.childrenDiv{width: 300px;height: 300px;margin: 50px auto;background: yellow;border: 5px solid black;padding: 5px;
+			/*box-sizing: border-box;*/position: relative;left: 10px;top:30px;}
+	</style>
+</head>
+<body>
+	<div class="parentDiv">
+		<div class="childrenDiv"></div>
+	</div>	
+	<script type="text/javascript">
+	var dataParam = { "seqId":1, "protover":"1.0", "termId":"53102", "userId":"0", "sessionId": 7130336396747932000, 
+ "termNo":"76A0F38520987D4BECA0C892176523C1",
+ "termClass":4, "termType":2, "cliver":"0.0.1"
+ };
+dataParam.data = {
+    		"id" : 192,
+            "page" : 0,
+            "size" : 11
+        };
+
+
+
+ var dataObj = $.toJSON(dataParam);
+		$.ajax({
+			//url : "http://localhost:8080/cms-web/pc/app/",
+            contentType : "application/json",
+            dataType:"json",
+            type:"POST",
+            data: dataObj,
+            crossDomain:true,
+            // url : "http://localhost:8080/cms-web/app/" + "getVideoRelatedList",
+            //url : "http://172.16.121.22:8080/cms-web/app/",
+            //url : "http://172.16.100.204:8080/app/getVideoRelatedList",
+            url : "http://172.16.121.22:8080/cms-web/app/createToken",
+            
+
+            //url : "http://www.dov.com/webApi/require",
+
+            error : function() {
+				console.log("-------");
+//                 alert("操作失败!");
+            },
+            success : function(obj) {
+            	console.log("-------222");
+	            console.log(obj);
+	        }
+        });
+	</script>
+</body>
+</html>

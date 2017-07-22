@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>document的scroll相关的宽高</title>
+	<style type="text/css">
+		body{
+			height: 350px;
+			width: 500px;
+			overflow: scroll;
+			background-color: #eee;
+			padding: 40px;
+			margin: 10px;
+			border: 20px solid #ccc;
+		}
+
+		#mDiv{
+			width: 200px;
+			height: 200px;
+			background-color:red;
+			border:1px solid #000;
+			overflow: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="mDiv">
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+		<p>船袜的沙发看电视放假SD卡</p>
+	</div>
+
+	<script type="text/javascript">
+		// document.body和div的scrollWidth,scrollHeight是不同的
+		// document.body 给定宽高小与浏览器窗口时 （scrollWidth通常是浏览器窗口的宽度 scrollHeight通常是浏览器窗口的高度） 大于时，且内容小与给定宽高 scrollWidth = 给定的宽度 + 其所有的padding，margin和border 大于时，且内容大于给定宽高  scrollWidth = 内容宽度 + padding，margin和border。以上都是chrome浏览器的
+
+
+		// 在火狐浏览器，它把body跟div一样处理
+
+
+		// div下的1.无滚动轴时：scrollWidth = clientWidth = style.width + style.padding*2 2.有滚动轴时：scrollWidth = 实际内容宽度 + padding*2
+
+
+// scrollLeft和scrollTop这对属性是可读写的，指的是当元素其中的高度超出其宽度的时候，元素被卷起的高度和宽度。。。。
+
+
+	</script>
+</body>
+</html>
